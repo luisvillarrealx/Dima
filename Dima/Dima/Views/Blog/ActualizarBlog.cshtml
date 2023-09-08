@@ -1,0 +1,68 @@
+﻿@model Dima.Entities.BlogsEnt
+
+@{
+    ViewBag.Title = "ActualizarBlog";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="row">
+
+    <div class="col-1">
+    </div>
+
+    <div class="col-md-10 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Actualizar Blog</h4>
+
+                <br />
+
+                @using (Html.BeginForm("ActualizarBlog", "Blog", FormMethod.Post, new { @class = "forms-sample", enctype = "multipart/form-data" }))
+                {
+                    @Html.HiddenFor(m => m.idBlog)
+                    @Html.HiddenFor(m => m.foto)
+
+            <div class="row">
+
+                <div class="form-group col-md-8">
+                    @Html.TextBoxFor(m => m.titulo, new
+               {
+                   @class = "form-control form-control-md",
+                   @placeholder = "Título",
+                   @required = true,
+                   @autocomplete = "off",
+               })
+                </div>
+
+                <div class="form-group col-md-8">
+                    @Html.TextAreaFor(Model => Model.descripcion, new
+               {
+                   @class = "form-control form-control-md",
+                   @required = true,
+               })
+                </div>
+
+
+                
+                <div class="form-group col-md-8">
+                    <img class="rounded-0" style="margin-bottom:3px;" width="300" height="150" src="~/Imagenes/Blogs/@ViewBag.foto" alt="">
+                    @Html.TextBoxFor(m => m.archivo, new
+                    {
+                        @class = "form-control form-control-md",
+                        @type = "file",
+                    })
+                </div>
+
+            </div>
+
+                    <br />
+
+                    <input type="submit" class="btn btn-primary mr-2" value="Actualizar">
+
+                }
+            </div>
+        </div>
+    </div>
+
+</div>

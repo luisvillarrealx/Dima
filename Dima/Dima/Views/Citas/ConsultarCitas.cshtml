@@ -1,0 +1,56 @@
+﻿@{
+    ViewBag.Title = "ConsultarCitas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 stretch-card mt-5 mb-5">
+    <div class="card">
+        <div class="card-body table-responsive">
+            <h4 class="card-title">Registro de citas</h4>
+
+            <table id="tablaCitas" class="table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th class="th-sm">Código Cita</th>
+                        <th class="th-sm">Asunto</th>
+                        <th class="th-sm">Paciente</th>
+                        <th class="th-sm">Fecha</th>
+                        <th class="th-sm">Departamento</th>
+                        <th class="th-sm">Psicólogo</th>
+                        <th class="th-sm">Teléfono Paciente</th>
+                        <th class="th-sm">Correo Paciente</th>
+                        <th class="th-sm">Comentarios de sesión</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in ViewBag.ListaCitas)
+                    {
+                        <tr>
+                            <td>@item.codigoCita</td>
+                            <td>@item.asunto</td>
+                            <td>@item.nombrePaciente</td>
+                            <td>@item.fecha</td>
+                            <td>@item.departamento</td>
+                            <td>@item.psicologo</td>
+                            <td>@item.numeroTelefonico</td>
+                            <td>@item.correoPaciente</td>
+                            <td>@item.comentarioDeSesion</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+<script type="text/javascript">
+    $(document).ready(function () {
+        let table = new DataTable('#tablaCitas', {
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
+            },
+        });
+    });
+</script>

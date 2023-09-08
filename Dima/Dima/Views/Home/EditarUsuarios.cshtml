@@ -1,0 +1,80 @@
+﻿@model Dima.Entities.UsuariosEnt
+
+@{
+    ViewBag.Title = "EditarUsuarios";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-1">
+    </div>
+    <div class="col-md-10 grid-margin stretch-card">
+        <div class="card">
+            <div class="card-body">
+                <h4 class="card-title">Actualizar Usuarios</h4>
+                <br />
+                @using (Html.BeginForm("EditarUsuarios", "Home", FormMethod.Post, new { @class = "forms-sample" }))
+                {
+                    @Html.HiddenFor(m => m.idUsuario)
+
+                    <div class="row">
+
+                        <div class="form-group col-md-6">
+                            @Html.TextBoxFor(m => m.nombre, new
+                            {
+                                @class = "form-control form-control-md",
+                                @placeholder = "Nombre",
+                                @required = true,
+
+                            })
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            @Html.TextBoxFor(m => m.primerApellido, new
+                            {
+                                @class = "form-control form-control-md",
+                                @placeholder = "Primer Apellido",
+                                @required = true,
+
+                            })
+                        </div>
+
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.TextBoxFor(m => m.segundoApellido, new
+                            {
+                                @class = "form-control form-control-md",
+                                @placeholder = "Segundo Apellido",
+                                @required = true,
+                            })
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="form-group col-md-6">
+                            @Html.DropDownListFor(m => m.idRol, ViewBag.ListadoRoles as List<SelectListItem>, "Seleccionar Rol", new
+                                             {
+                                                 @class = "form-select wide",
+                                                 @id = "default-select",
+                                                 @required = true
+                                             })
+                        </div>
+
+                        <div class="form-group col-md-6">
+                            @Html.DropDownListFor(m => m.idDepartamento, ViewBag.ListadoDepartamentos as List<SelectListItem>, "Seleccionar Departamento", new
+                         {
+                             @class = "form-select wide",
+                             @id = "default-select",
+                             @required = true
+                         })
+                        </div>
+                    </div>
+                    <br />
+                    <input type="submit" class="btn btn-primary mr-2" value="Actualizar">
+                }
+            </div>
+        </div>
+    </div>
+</div>

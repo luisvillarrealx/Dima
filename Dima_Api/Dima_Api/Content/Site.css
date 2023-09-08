@@ -1,0 +1,62 @@
+﻿body {
+    padding-top: 50px;
+    padding-bottom: 20px;
+}
+
+/* Set padding to keep content from hitting the edges */
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+footer p {
+    text-align: center;
+    margin-top: auto;
+}
+
+.navbar-inverse .navbar-brand, .navbar-inverse .navbar-nav > li > a {
+    color: #fff;
+}
+
+.navbar-brand:hover, .navbar-inverse .navbar-nav > li > a:hover {
+    font-weight: bold;
+}
+
+navbar-toggle {
+    background-color: #83C4FF;
+}
+
+.jumbotron {
+    margin: auto;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin-bottom: 30px;
+    color: #fff;
+    background-color: #83C4FF;
+}
+
+.container .jumbotron, .container-fluid .jumbotron {
+    margin-top: 50px;
+}
+
+.title-bold, h1 {
+    font-weight: bold;
+}
+
+.navbar-inverse, .navbar-inverse .navbar-toggle {
+    background-color: #5DB2FF;
+    border: #5DB2FF;
+}
+
+/* Set width on the form input elements since they're 100% wide by default */
+input,
+select,
+textarea {
+    max-width: 280px;
+}
+
+.navbar-inverse .navbar-toggle:hover,
+.navbar-inverse .navbar-toggle:focus {
+    background-color: #777;
+    border-color: #fff
+}

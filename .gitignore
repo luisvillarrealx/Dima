@@ -1,0 +1,9 @@
+Dima/packages
+Dima_Api/packages
+Dima/Dima/bin
+Dima/Dima/obj
+Dima_Api/Dima_Api/bin
+Dima_Api/Dima_Api/obj
+Dima_Api/Dima_Api/ModeloBD/*
+!Dima_Api/Dima_Api/ModeloBD/*.gitkeep
+.vs/

@@ -1,0 +1,83 @@
+﻿@model Dima.Entities.CitasEnt
+
+@{
+    ViewBag.Title = "ConsultarCitas";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="form-cita mb-5 mt-5">
+    <!-- form itself end-->
+    @using (Html.BeginForm("AgendarCita", "Citas", FormMethod.Post))
+
+    {
+        <div class="popup_box">
+            <div class="popup_inner">
+                <h3> Agendar cita </h3>
+
+                <div class="row">
+                    <div class="col-xl-12">
+
+                        @Html.TextBoxFor(m => m.asunto, new
+                            {
+                              @class = "form-control",
+                              @required = true,
+                              @placeholder = "Asunto",
+                              @type = "text"
+                            })
+                    </div>
+                    <div class="col-xl-12">
+                        @Html.TextBoxFor(m => m.nombrePaciente, new
+                            {
+                              @class = "form-control",
+                              @required = true,
+                              @placeholder = "Nombre",
+                              @type = "text"
+                            })
+                    </div>
+                    <div class="col-xl-6">
+                        @Html.TextBoxFor(m => m.fecha, new
+                        {
+                            @class = "form-control",
+                            @required = true,
+                            @placeholder = "Seleccionar fecha",
+                            @type = "datetime-local",
+                            @autocomplete = "off"
+                        })
+
+                    </div>
+                    <div class="col-xl-6">
+                        @Html.DropDownListFor(m => m.departamento, ViewBag.ListadoDepartamentos as List<SelectListItem>, "Seleccionar departamento", new
+                        {
+                            @class = "form-select wide",
+                            @id = "default-select",
+                            @required = true
+                        })
+                    </div>
+                    <div class="col-xl-6">
+                        @Html.DropDownListFor(m => m.idPsicologo, ViewBag.ListadoPsicologos as List<SelectListItem>, "Seleccionar psicólogo", new
+                        {
+                            @class = "form-select wide",
+                            @id = "default-select",
+                            @required = true
+                        })
+                    </div>
+                    <div class="col-xl-6">
+                        @Html.TextBoxFor(m => m.numeroTelefonico, new
+                        {
+                            @class = "form-control",
+                            @required = true,
+                            @placeholder = "Número telefónico",
+                            @type = "text",
+                            @autocomplete = "off"
+                        })
+                    </div>
+
+                    <div class="col-xl-12">
+                        <button type="submit" class="boxed-btn3">Confirmar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+    <!-- form itself end -->
+</div>

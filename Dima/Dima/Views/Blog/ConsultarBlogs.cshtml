@@ -1,0 +1,114 @@
+﻿@model Dima.Entities.BlogsEnt
+@{
+    ViewBag.Title = "ConsultarBlogs";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="col-md-12 stretch-card  mt-5 mb-5">
+    <div class="card">
+        <div class="card-body table-responsive">
+            <h4 class="card-title">Blogs</h4>
+            <div class="info_button">
+                <a href="#insertarBlog" class="popup-with-form">Agregar nuevo blog</a>
+            </div>
+            <br />
+            <table id="tablaBlogs" class="table table-hover table-sm">
+                <thead>
+                    <tr>
+                        <th class="th-sm">Título</th>
+                        <th class="th-sm">Descripción</th>
+                        <th class="th-sm">Fecha</th>
+                        <th class="th-sm">Categoría</th>
+                        <th class="th-sm">Acción</th>
+                    </tr>
+                </thead>
+                <tbody>
+
+                    @foreach (var item in ViewBag.ListadoBlogs)
+                    {
+                        <tr>
+                            <td>@item.titulo</td>
+                            <td>@item.descripcion</td>
+                            <td>@item.fecha.ToString("dd/MM/yyyy")</td>
+                            <td>@item.nombreCategoria</td>
+                            <td>
+                                <a href="@Url.Action("ActualizarBlog","Blog", new { idBlog = item.idBlog})" class="ti-reload"></a>
+                            </td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="white-popup-block mfp-hide" style="margin: auto; width: 50%;padding: 10px;" id="insertarBlog">
+    <!-- form itself end-->
+    @using (Html.BeginForm("InsertarBlog", "Blog", FormMethod.Post, new { enctype = "multipart/form-data" }))
+
+    {
+        <div class="popup_box">
+            <div class="popup_inner">
+                <h3> Insertar Blog </h3>
+
+                <div class="row">
+                    <div class="col-xl-12">
+
+                        @Html.TextBoxFor(m => m.titulo, new
+                       {
+                           @class = "form-control form-control-md",
+                           @placeholder = "Título",
+                           @required = true,
+                           @autocomplete = "off",
+                       })
+                    </div>
+                    <div class="col-xl-12">
+                        @Html.TextAreaFor(Model => Model.descripcion, new
+                       {
+                           @class = "form-control form-control-md",
+                           @required = true,
+                           @Value="Descripción",
+                           @Style="margin-bottom: 20px;"
+                       })
+                    </div>
+                    <div class="col-xl-6">
+                        @Html.TextBoxFor(m => m.archivo, new
+                        {
+                            @class = "form-control form-control-md",
+                            @type = "file",
+                            @required=true,
+                        })
+
+                    </div>
+                    <div class="col-xl-6">
+                        @Html.DropDownListFor(m => m.idCategoria, ViewBag.ListadoCategorias as List<SelectListItem>, "Seleccionar categoría", new
+                        {
+                            @class = "form-select wide",
+                            @id = "default-select",
+                            @required = true
+                        })
+                    </div>
+
+                    <div class="col-xl-12">
+                        <button type="submit" class="boxed-btn3">Confirmar</button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    }
+    <!-- form itself end -->
+</div>
+
+<script src="https://cdn.datatables.net/1.13.4/js/jquery.dataTables.min.js"></script>
+<link rel="stylesheet" href="https://cdn.datatables.net/1.13.4/css/jquery.dataTables.min.css">
+<script type="text/javascript">
+    $(document).ready(function () {
+        let table = new DataTable('#tablaBlogs', {
+            language: {
+                url: 'https://cdn.datatables.net/plug-ins/1.13.4/i18n/es-ES.json',
+            },
+        });
+    });
+</script>
+

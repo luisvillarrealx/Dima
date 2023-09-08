@@ -1,0 +1,45 @@
+﻿@model Dima.Entities.UsuariosEnt
+
+@{
+    ViewBag.Title = "Recuperar Contraseña";
+    Layout = "~/Views/Shared/_LayoutBlank.cshtml";
+}
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="~/templates/login/images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-md-6 contents centro">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="mb-4">
+                            <h3>Recuperar contraseña</h3>
+                            <p class="mb-4">Ingresa el correo electrónico para enviarte la contraseña</p>
+                        </div>
+
+                        @using (Html.BeginForm("RecuperarContrasena", "Home", FormMethod.Post))
+                        {
+                            <div class="form-group first last">
+                                @Html.TextBoxFor(m => m.correo, new
+                           {
+                               @class = "form-control form-control-lg",
+                               @placeholder = "Correo electrónico",
+                               @required = true,
+                               @type = "Email",
+                               @onblur = "ValidarCorreo();"
+                           })
+                               
+                            </div>
+
+                            <input type="submit" value="Recuperar contraseña" class="btn btn-block login-btn mt-3">
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="~/FuncionesJS/RegistrarUsuarios.js"></script>

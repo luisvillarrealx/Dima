@@ -1,0 +1,76 @@
+﻿@model Dima.Entities.UsuariosEnt
+
+@{
+    ViewBag.Title = "Registro";
+    Layout = "~/Views/Shared/_LayoutBlank.cshtml";
+}
+
+<div class="content">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="~/templates/login/images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
+            </div>
+            <div class="col-md-6 contents">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="mb-4">
+                            <h3>Registro</h3>
+                            <p class="mb-4">Registrate para acceder al Dima y agendar tus citas con especialistas en psicología completamente gratis</p>
+                        </div>
+
+                        @using (Html.BeginForm("Registro", "Home", FormMethod.Post))
+                        {
+                            <div class="form-group first">
+                                @Html.TextBoxFor(m => m.correo, new
+                           {
+                               @class = "form-control",
+                               @placeholder = "Correo electrónico",
+                               @required = true,
+                               @onblur = "BuscarCorreo();"
+
+                           })
+                            </div>
+
+                            <div class="form-group middle">
+                                @Html.TextBoxFor(m => m.contrasena, new
+                           {
+                               @class = "form-control",
+                               @required = true,
+                               @placeholder = "Contraseña",
+                               @type = "Password",
+                               @onblur = "ValidarConfirmacionContrasenna();"
+                           })
+                            </div>
+
+                            <div class="form-group last mb-4">
+                                @Html.TextBoxFor(Model => Model.confirmarcontrasena, new
+                           {
+                               @class = "form-control",
+                               @required = true,
+                               @placeholder = "Confirmar contraseña",
+                               @type = "Password",
+                               @onblur = "ValidarConfirmacionContrasenna();"
+                           })
+                            </div>
+
+                            <div class="mensajeError">
+                                @ViewBag.mensaje
+                            </div>
+
+                            <input type="submit" id="btnRegistrar" disabled value="Regístrate" class="btn btn-block login-btn">
+
+                            <span class="d-block text-left my-4 text-muted ">&mdash; Si ya tienes cuenta &mdash;</span>
+
+                            @Html.ActionLink("Inicia sesión", "Index", "Home", new { @class = "btn btn-block register-btn" })
+
+
+                        }
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/FuncionesJS/RegistrarUsuarios.js"></script>

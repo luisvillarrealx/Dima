@@ -1,0 +1,87 @@
+﻿<!DOCTYPE html>
+<html class="no-js" lang="zxx">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <title>Dima</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" href="@Url.Content("~/templates/template/img/logo__dima.png")" />
+    <link rel="stylesheet" href="/path/to/cdn/bootstrap.min.css" />
+    <script src="/path/to/dist/validator.min.js"></script>
+    <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+    @Styles.Render("https://fonts.googleapis.com/icon?family=Material+Icons")
+    <!-- CSS here -->
+    @Styles.Render("~/templates/template/css/bootstrap.min.css")
+    @Styles.Render("~/templates/template/css/owl.carousel.min.css")
+    @Styles.Render("~/templates/template/css/magnific-popup.css")
+    @Styles.Render("~/templates/template/css/font-awesome.min.css")
+    @Styles.Render("~/templates/template/css/themify-icons.css")
+    @Styles.Render("~/templates/template/css/nice-select.css")
+    @Styles.Render("~/templates/template/css/flaticon.css")
+    @Styles.Render("~/templates/template/css/gijgo.css")
+    @Styles.Render("~/templates/template/css/animate.css")
+    @Styles.Render("~/templates/template/css/slicknav.css")
+    @Styles.Render("~/templates/template/css/style.css")
+    @Styles.Render("~/templates/template/css/style.map")
+    @Styles.Render("~/templates/template/css/theme-default.css")
+    @Styles.Render("~/templates/template/css/themify-icons.css")
+    @Styles.Render("~/templates/template/css/responsive.scss")
+
+
+    @Styles.Render("https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap")
+
+    @Styles.Render("~/templates/login/fonts/icomoon/style.css")
+    @Styles.Render("~/templates/login/css/owl.carousel.min.css")
+
+    <!-- Bootstrap CSS -->
+    @Styles.Render("~/templates/login/css/bootstrap.min.css")
+
+    <!-- Style -->
+    @Styles.Render("~/templates/login/css/style.css")
+
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    @RenderBody()
+
+    <!-- JS here -->
+    @Scripts.Render("~/templates/login/js/jquery-3.3.1.min.js")
+    @Scripts.Render("~/templates/login/js/popper.min.js")
+    @Scripts.Render("~/templates/login/js/bootstrap.min.js")
+    @Scripts.Render("~/templates/login/js/main.js")
+    @Scripts.Render("~/templates/template/js/vendor/modernizr-3.5.0.min.js")
+    @Scripts.Render("~/templates/template/js/vendor/jquery-1.12.4.min.js")
+    @Scripts.Render("~/templates/template/js/popper.min.js")
+    @Scripts.Render("~/templates/template/js/bootstrap.min.js")
+    @Scripts.Render("~/templates/template/js/owl.carousel.min.js")
+    @Scripts.Render("~/templates/template/js/isotope.pkgd.min.js")
+    @Scripts.Render("~/templates/template/js/ajax-form.js")
+    @Scripts.Render("~/templates/template/js/waypoints.min.js")
+    @Scripts.Render("~/templates/template/js/jquery.counterup.min.js")
+    @Scripts.Render("~/templates/template/js/imagesloaded.pkgd.min.js")
+    @Scripts.Render("~/templates/template/js/scrollIt.js")
+    @Scripts.Render("~/templates/template/js/jquery.scrollUp.min.js")
+    @Scripts.Render("~/templates/template/js/wow.min.js")
+    @Scripts.Render("~/templates/template/js/nice-select.min.js")
+    @Scripts.Render("~/templates/template/js/jquery.slicknav.min.js")
+    @Scripts.Render("~/templates/template/js/jquery.magnific-popup.min.js")
+    @Scripts.Render("~/templates/template/js/plugins.js")
+    @Scripts.Render("~/templates/template/js/gijgo.min.js")
+    <!--contact js-->
+    @Scripts.Render("~/templates/template/js/contact.js")
+    @Scripts.Render("~/templates/template/js/jquery.ajaxchimp.min.js")
+    @Scripts.Render("~/templates/template/js/jquery.form.js")
+    @Scripts.Render("~/templates/template/js/jquery.validate.min.js")
+    @Scripts.Render("~/templates/template/js/mail-script.js")
+
+    @Scripts.Render("~/templates/template/js/main.js")
+    @section scripts{
+        <script>
+            var validator = new Validator(document.querySelector("form"), {
+                // options here
+            });
+        </script>
+    }
+</body>
+</html>
